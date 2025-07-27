@@ -6,8 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartTaskTracker.Application.Users.Commands.GetAllUsers
+namespace SmartTaskTracker.Application.Users.Queries.GetAllUsers
 {
-    public record GetAllUsersCommand() : IRequest<List<UserDto>>;
+    public record GetAllUsersQuery() : IRequest<List<UserDto>>;
     
 }

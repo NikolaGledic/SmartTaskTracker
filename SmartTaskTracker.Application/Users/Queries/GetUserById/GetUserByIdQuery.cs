@@ -6,8 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartTaskTracker.Application.Users.Commands.GetUserById
+namespace SmartTaskTracker.Application.Users.Queries.GetUserById
 {
-    public record GetUserByIdCommand(Guid Id) : IRequest<UserDto>;
+    public record GetUserByIdQuery(Guid Id) : IRequest<UserDto>;
    
 }

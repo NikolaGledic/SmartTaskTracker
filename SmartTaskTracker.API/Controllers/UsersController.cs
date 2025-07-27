@@ -28,7 +28,7 @@ namespace SmartTaskTracker.API.Controllers
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<UserDto>> GetUserById([FromRoute] Guid id)
         {
-            var query = new GetUserByIdCommand(id);
+            var query = new GetUserByIdQuery(id);
             var user = await _mediator.Send(query);
             if (user == null) return NotFound();
             return Ok(user);
@@ -37,7 +37,7 @@ namespace SmartTaskTracker.API.Controllers
         [HttpGet]
         public async Task<ActionResult<UserDto>> GetAllUsers()
         {
-            var users = await _mediator.Send(new GetAllUsersCommand());
+            var users = await _mediator.Send(new GetAllUsersQuery());
             return Ok(users);
         }
 

@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartTaskTracker.Application.Users.Commands.GetUserById
+namespace SmartTaskTracker.Application.Users.Queries.GetUserById
 {
-    public class GetUserByIdCommandHandler : IRequestHandler<GetUserByIdCommand, UserDto?>
+    public class GetUserByIdQueryHandler : IRequestHandler<GetUserByIdQuery, UserDto?>
     {
         private readonly SmartTaskTrackerDbContext _context;
-        public GetUserByIdCommandHandler(SmartTaskTrackerDbContext context) => _context = context;
+        public GetUserByIdQueryHandler(SmartTaskTrackerDbContext context) => _context = context;
 
-        public async Task<UserDto?> Handle(GetUserByIdCommand request, CancellationToken cancellationToken)
+        public async Task<UserDto?> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
         {
             var user = await _context.Users.FindAsync(new object[] { request.Id }, cancellationToken);
             if (user == null) return null;

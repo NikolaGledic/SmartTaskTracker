@@ -20,6 +20,8 @@ builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(SomeApplicationMarker).Assembly)
 );
 
+builder.Services.AddControllers();
+
 //builder.Services.AddScoped<IRequestHandler<CreateUserCommand, UserDto>, CreateUserCommandHandler>();
 
 // 3) Swagger
@@ -33,6 +35,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
